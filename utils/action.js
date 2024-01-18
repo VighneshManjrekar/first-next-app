@@ -33,8 +33,9 @@ export const getTask = async (id) => {
   });
 };
 
-export const updateTask = async (id, formData) => {
+export const updateTask = async (formData) => {
   const content = formData.get("content");
+  const id = formData.get("id");
   const completed = Boolean(formData.get("completed"));
   await prisma.task.update({
     where: { id },
